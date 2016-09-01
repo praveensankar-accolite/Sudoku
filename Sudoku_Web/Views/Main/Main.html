@@ -16,17 +16,17 @@
     <div ng-app="Main">
        <div ng-controller="MainController">
            <h1 class="row-center">welcome</h1>
-           <div  id="mainTable" class="table-responsive  mainTable">
-               <table class="table table-bordered">
-                   <tr ng-repeat="row in Question">
+           <div  id="mainTable" class="mainTable">
+               <table class="table-bordered" >
+                   <tr ng-repeat="row in Question track by $index">
 
-                       <td ng-repeat="column in row track by $index">
-                           <div ng-if="column!=0">
+                       <td  ng-repeat="column in row track by $index">
+                           <div class="table-cell" ng-if="column==Answer[$parent.$index][$index]">
                                {{column}}
                            </div>
-                           <div ng-if="column==0">
-                               <span>{{row[$index]}}</span>
-                               <input type="number" ng-model="Question.row[$index].column[$index]" name="number" ng-maxlength="1" maxlength="1" min="1" max="9" />
+                           <div class="red" ng-if="column!=Answer[$parent.$index][$index]">
+                               
+                               <input type="number" ng-model="Question[$parent.$parent.$index][$parent.$index]" data-ng-change="setSolution($index,$parent.$parent.$index,Question,column)" name="number" ng-maxlength="1" maxlength="1" min="1" max="9" />
                            </div>
                        </td>
                    </tr>

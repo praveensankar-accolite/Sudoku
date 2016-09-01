@@ -29,7 +29,8 @@
         $window.alert(angular.equals(Question,Answer));
     };
 
-    $scope.setSolution = function (Question, row, $index,answer) {
-        Question[row][$index] = answer;
+    $scope.setSolution = function ($i,$j,Question,value) {
+        console.log($, $j);
+        Question[$i][$j] = value;
     }
 }]);
