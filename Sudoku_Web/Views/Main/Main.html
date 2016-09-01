@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+        <script src="../../Scripts/angular.min.js"></script>
+        <script src="../../Scripts/angular-route.min.js"></script>
+        <link href="../../Content/bootstrap.css" rel="stylesheet" />
+        <link href="../../CSS/main.css" rel="stylesheet" />
+        <script src="../Home/HomeModule.js"></script>
+        <script src="MainModule.js"></script>
+        <script src="../Home/HomeController.js"></script>
+        <script src="MainController.js"></script>
+    </title>
+</head>
+<body>
+    <div ng-app="Main">
+       <div ng-controller="MainController">
+           <h1 class="row-center">welcome</h1>
+           <div  id="mainTable" class="table-responsive  mainTable">
+               <table class="table table-bordered">
+                   <tr ng-repeat="row in Question">
+
+                       <td ng-repeat="column in row track by $index">
+                           <div ng-if="column!=0">
+                               {{column}}
+                           </div>
+                           <div ng-if="column==0">
+                               <span>{{row[$index]}}</span>
+                               <input type="number" ng-model="Question.row[$index].column[$index]" name="number" ng-maxlength="1" maxlength="1" min="1" max="9" />
+                           </div>
+                       </td>
+                   </tr>
+
+
+               </table>
+            
+
+           </div>
+           <a><button class="btn btn-primary center-block" ng-click="Validate(Question,Answer)">submit</button></a>
+            <a href="#home"><button class="btn navbar-fixed-bottom  btn-primary ">home page</button></a>
+        </div>
+    </div>
+</body>
+</html>
