@@ -21,11 +21,11 @@
                    <tr ng-repeat="row in Question track by $index">
 
                        <td  ng-repeat="column in row track by $index">
-                           <div class="table-cell" ng-if="column==Answer[$parent.$index][$index]">
+                           <div class="table-cell" ng-if="flag[$parent.$index][$index]!=0">
                                {{column}}
                            </div>
-                           <div class="red" ng-if="column!=Answer[$parent.$index][$index]">
-                               
+                           <div class="red" ng-if="flag[$parent.$index][$index]==0">
+
                                <input type="number" ng-model="Question[$parent.$parent.$index][$parent.$index]" data-ng-change="setSolution($index,$parent.$parent.$index,Question,column)" name="number" ng-maxlength="1" maxlength="1" min="1" max="9" />
                            </div>
                        </td>
