@@ -26,7 +26,7 @@
                            </div>
                            <div class="red" ng-if="flag[$parent.$index][$index]==0">
 
-                               <input type="number" ng-model="Question[$parent.$parent.$index][$parent.$index]" data-ng-change="setSolution($index,$parent.$parent.$index,Question,column)" name="number" ng-maxlength="1" maxlength="1" min="1" max="9" />
+                               <input type="number" ng-model="Question[$parent.$parent.$index][$parent.$index]" data-ng-change="DoValidation($parent.$parent.$index,$parent.$index)" name="number" ng-maxlength="1" maxlength="1" min="1" max="9" />
                            </div>
                        </td>
                    </tr>
@@ -36,7 +36,7 @@
             
 
            </div>
-           <a><button class="btn btn-primary center-block" ng-click="Validate(Question,Answer)">submit</button></a>
+           <a><button class="btn btn-primary center-block" ng-click="Validate()">submit</button></a>
             <a href="#home"><button class="btn navbar-fixed-bottom  btn-primary ">home page</button></a>
         </div>
     </div>

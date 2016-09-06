@@ -27,6 +27,7 @@ td {
 
 input{
     background-color: #ebebe0;
+    text-align:center;
 }
 input:focus{
     background-color:red;
